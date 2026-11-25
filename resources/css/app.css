@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-brand-forest: 23 75 45;
+        --color-brand-sunshine: 255 212 71;
+        --color-brand-cream: 255 249 232;
+        --color-brand-leaf: 57 122 69;
+        --color-brand-adventure: 242 140 40;
+        --color-brand-charcoal: 38 51 47;
+        --color-brand-secondary: 100 113 107;
+        --color-brand-surface: 255 255 255;
+        --color-brand-border: 229 223 201;
+    }
+
+    a[href],
+    button,
+    summary,
+    select,
+    label[for],
+    label:has(input),
+    input[type="checkbox"],
+    input[type="radio"] {
+        cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled {
+        cursor: not-allowed;
+    }
+
+    :focus-visible {
+        outline: 3px solid rgb(var(--color-brand-forest));
+        outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
