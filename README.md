@@ -2,14 +2,40 @@
 
 Aplikasi katalog dan pemesanan tiket umum serta paket sekolah. Admin mengelola produk dan kode redeem dari dashboard. Pelanggan dapat memesan tiket umum atau mengajukan paket sekolah, lalu membayar melalui Midtrans.
 
-## Fitur
+## Fitur website
 
-- Admin mengelola tiket umum dan paket sekolah, termasuk harga, kuota, status aktif, dan diskon produk.
-- Katalog publik menampilkan produk aktif dan harga dari database.
-- Paket sekolah memerlukan persetujuan admin sebelum pembayaran.
-- Kode redeem mendukung diskon persentase atau nominal, berlaku untuk kedua jenis produk, dan hanya dapat digunakan satu kali total.
-- Harga transaksi dihitung di backend. Payment menyimpan snapshot harga dan diskon.
-- Midtrans menangani pembayaran; status transaksi diverifikasi di server sebelum pesanan ditandai lunas.
+### Pengunjung dan pelanggan
+
+- Halaman utama menampilkan tiket umum dan paket sekolah aktif dari database, termasuk deskripsi, harga, promo produk, dan kuota.
+- Halaman detail menampilkan informasi produk dan ketersediaan berdasarkan tanggal kunjungan.
+- Pelanggan dapat membuat akun, masuk, memverifikasi email, meminta reset kata sandi, dan mengelola profil.
+- Pemesanan tiket umum meminta tanggal kunjungan, jumlah tiket, serta kode redeem jika tersedia.
+- Pengajuan paket sekolah meminta nama sekolah, penanggung jawab, tanggal kunjungan, dan jumlah peserta. Pengajuan harus disetujui admin sebelum pembayaran.
+- Dashboard pelanggan menampilkan daftar pesanan, status pengajuan dan pembayaran, rincian diskon, alasan penolakan, serta kode e-ticket setelah pembayaran berhasil.
+- Pelanggan dapat melanjutkan pembayaran yang masih menunggu atau meminta aplikasi memeriksa status terbaru ke Midtrans.
+
+### Dashboard admin
+
+- Admin dapat menambah, melihat, mengubah, dan menghapus tiket umum maupun paket sekolah.
+- Data produk mencakup nama, deskripsi, harga, kuota per tanggal, dan status aktif. Produk nonaktif tidak tampil di katalog publik.
+- Admin dapat mengatur diskon produk berupa persentase atau nominal tetap, masa berlaku, dan status aktif.
+- Admin dapat meninjau pengajuan sekolah, menyetujui atau menolak pengajuan, serta mencatat alasan penolakan.
+- Admin dapat membuat kode redeem dengan diskon persentase atau nominal, mengaktifkan atau menonaktifkannya, dan melihat status penggunaannya. Kode berlaku satu kali total untuk tiket umum atau paket sekolah.
+- Produk yang sudah memiliki riwayat pesanan tidak dapat dihapus. Admin dapat menonaktifkannya agar produk tidak muncul lagi di katalog.
+
+### Harga dan pembayaran
+
+- Backend menghitung harga dan total transaksi dari data produk. Harga yang dikirim browser tidak digunakan sebagai sumber transaksi.
+- Diskon produk hanya berlaku dalam periode yang diatur admin. Kode redeem menggantikan diskon produk pada transaksi yang menggunakannya.
+- Rincian harga, diskon, kode redeem, dan total disimpan pada pembayaran agar riwayat transaksi tetap sesuai dengan saat pemesanan.
+- Pembayaran menggunakan Midtrans Snap. Server memeriksa signature notifikasi, order, dan nominal sebelum mengonfirmasi pesanan.
+- Kuota tanggal kunjungan dikelola saat checkout. Kuota yang tertahan dilepas jika pembayaran gagal, dibatalkan, atau kedaluwarsa.
+- Setelah pembayaran terverifikasi, pesanan dikonfirmasi dan kode e-ticket ditampilkan pada dashboard pelanggan.
+
+### Tampilan dan gambar
+
+- Antarmuka menggunakan palet Tropical Adventure dan dirancang untuk tampilan desktop maupun perangkat mobile.
+- Hero dan area foto produk saat ini berupa placeholder. Upload gambar ke Laravel Storage belum tersedia.
 
 ## Persyaratan
 

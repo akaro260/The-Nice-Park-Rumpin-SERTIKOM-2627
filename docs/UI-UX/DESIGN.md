@@ -3,19 +3,25 @@
 
 ## 1. Arah Visual
 
-**Arah desain:** Nature Premium. Karakter yang dituju adalah suasana wisata alam yang hangat, rapi, premium, dan mudah dipahami. Identitas datang dari warna yang konsisten, informasi kunjungan yang nyata, serta foto lokasi yang benar-benar tersedia. Hindari layout dashboard generik dan dekorasi yang tidak membantu pengguna.
+**Arah desain:** Tropical Adventure. Karakter yang dituju adalah wisata alam yang hangat, aktif, dan mudah dipahami. Beranda mengambil inspirasi dari alur Ancol yang menonjolkan hero dan pembelian tiket, tetapi mempertahankan identitas The Nice Park, konten dan aset sendiri. Jangan menyalin logo, foto, teks, atau komposisi khas Ancol.
 
 ## 2. Sistem Warna
 
-### Palette utama
+### Palet Tropical Adventure
 
 | Token | Nilai | Penggunaan |
 |---|---|---|
-| Main | #183630 | Navigasi, footer, tombol primer, teks pada surface terang |
-| Secondary | #E3DAC9 | Latar section dan panel informasi |
-| Accent | #E5C690 | Penekanan harga, highlight kecil, indikator pilihan |
+| Forest Green | #174B2D | Navbar, footer, hero, dan elemen utama |
+| Sunshine Yellow | #FFD447 | CTA utama, harga, dan highlight |
+| Natural Cream | #FFF9E8 | Latar halaman |
+| Leaf Green | #397A45 | Aksen sekunder |
+| Adventure Orange | #F28C28 | Aksen kecil saja |
+| Natural Charcoal | #26332F | Teks utama |
+| Secondary Text | #64716B | Keterangan dan metadata |
+| White Surface | #FFFFFF | Kartu dan formulir |
+| Border | #E5DFC9 | Garis tepi dan pemisah |
 
-Gunakan accent secara terbatas, bukan sebagai latar semua komponen.
+Gunakan warna sesuai perannya. Jangan menyebarkan orange atau yellow ke semua komponen.
 
 ### Warna fungsional
 
@@ -24,7 +30,7 @@ Gunakan accent secara terbatas, bukan sebagai latar semua komponen.
 | Surface | #FFFFFF | Form, kartu informasi, modal |
 | Teks utama | #26332F | Isi dan heading pada latar terang |
 | Teks sekunder | #64716B | Keterangan dan metadata |
-| Border | #D4CCBD | Batas panel dan pemisah |
+| Border | #E5DFC9 | Batas panel dan pemisah |
 | Berhasil | #27845A | Pembayaran berhasil atau pengajuan disetujui |
 | Menunggu | #A66D17 | Pembayaran atau pengajuan yang menunggu |
 | Gagal/ditolak | #B83B35 | Error, penolakan, pembayaran gagal |
@@ -49,7 +55,7 @@ Sesuaikan ukuran dan panjang baris untuk layar kecil. Hierarki dibentuk melalui 
 
 ### Situs publik
 
-Header memuat identitas, katalog, informasi kunjungan, dan aksi akun. Hero memakai foto lokasi asli jika tersedia. Katalog menunjukkan nama dan jenis produk, harga, serta ketersediaan. Halaman detail menjelaskan harga, ketentuan, kuota, dan langkah pemesanan. Informasi paket sekolah menjelaskan data yang diminta dan proses persetujuan. Footer hanya memuat kontak dan tautan yang benar-benar tersedia.
+Header memuat identitas, katalog, informasi kunjungan, dan aksi akun. Hero memakai foto lokasi asli jika tersedia. Katalog menunjukkan nama dan jenis produk, harga, serta ketersediaan. Halaman detail menjelaskan harga, ketentuan, kuota, dan langkah pemesanan. Kartu katalog serta halaman detail menyediakan rasio gambar yang konsisten. Informasi paket sekolah menjelaskan data yang diminta dan proses persetujuan. Footer hanya memuat kontak dan tautan yang benar-benar tersedia.
 
 ### Area pelanggan
 
@@ -90,11 +96,11 @@ Komponen konsisten meliputi navigasi, tombol, input berlabel, kartu produk, tabe
 
 Gerak hanya memberi umpan balik singkat, misalnya membuka menu atau menampilkan validasi. Hindari animasi yang menghalangi tugas, berjalan terus, atau mengabaikan preferensi pengurangan gerak.
 
-Gunakan foto lokasi yang tersedia dan berizin. Jangan membuat testimoni, statistik, fasilitas, atau klaim seolah-olah fakta. Gradient, pola, bayangan besar, ikon, dan badge digunakan hanya jika membantu hierarki atau fungsi.
+Gunakan foto lokasi yang tersedia dan berizin. Sebelum foto tersedia, tampilkan placeholder yang jelas dan jangan menyamarkannya sebagai foto asli. Simpan foto produk di Laravel Storage setelah field unggah dan path gambar ditambahkan. Jangan membuat testimoni, statistik, fasilitas, atau klaim seolah-olah fakta. Gradient, pola, bayangan besar, ikon, dan badge digunakan hanya jika membantu hierarki atau fungsi.
 
 ## 8. Prinsip Anti-Slop
 
-Gunakan panduan anti-slop yang kompatibel dengan repository sebagai pemeriksaan kualitas, bukan sumber identitas visual. Identitas tetap Nature Premium dengan palette yang ditetapkan.
+Gunakan panduan anti-slop yang kompatibel dengan repository sebagai pemeriksaan kualitas, bukan sumber identitas visual. Identitas tetap Tropical Adventure dengan palet yang ditetapkan.
 
 - Setiap elemen visual mempunyai tujuan.
 - Jangan memilih pola landing page atau dashboard hanya karena umum.
@@ -106,13 +112,13 @@ Gunakan panduan anti-slop yang kompatibel dengan repository sebagai pemeriksaan 
 
 ## 9. Pemeriksaan Desain
 
-- [ ] Palette #183630, #E3DAC9, #E5C690 konsisten.
+- [ ] Palet #174B2D, #FFD447, #FFF9E8, #397A45, #F28C28, #26332F, #64716B, #FFFFFF, dan #E5DFC9 dipakai sesuai perannya.
 - [ ] Kontras sudah diperiksa untuk kombinasi warna aktual.
 - [ ] Layout diperiksa pada desktop, tablet, dan ponsel.
 - [ ] Fokus keyboard, label, alt text, dan empty/loading/error states tersedia.
 - [ ] Status punya label teks.
 - [ ] Tidak ada aksi yang tampak interaktif tetapi tidak bekerja.
-- [ ] Foto dan klaim memiliki sumber.
+- [ ] Foto dan klaim memiliki sumber; placeholder ditandai jelas.
 - [ ] Gerak menghormati prefers-reduced-motion.
 - [ ] Ornamen punya alasan identitas atau fungsi.
 

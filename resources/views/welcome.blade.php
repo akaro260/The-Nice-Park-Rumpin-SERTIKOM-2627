@@ -28,9 +28,9 @@
 
                     <div class="hidden items-center gap-5 xl:flex">
                         <a href="#utama" class="flex min-h-11 items-center rounded-sm px-1 text-sm hover:text-brand-sunshine active:text-brand-sunshine focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Beranda</a>
-                        <a href="#tentang" class="flex min-h-11 items-center rounded-sm px-1 text-sm hover:text-brand-sunshine active:text-brand-sunshine focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Tentang</a>
                         <a href="#tiket" class="flex min-h-11 items-center rounded-sm px-1 text-sm hover:text-brand-sunshine active:text-brand-sunshine focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Tiket</a>
                         <a href="#paket-sekolah" class="flex min-h-11 items-center rounded-sm px-1 text-sm hover:text-brand-sunshine active:text-brand-sunshine focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Paket sekolah</a>
+                        <a href="#tentang" class="flex min-h-11 items-center rounded-sm px-1 text-sm hover:text-brand-sunshine active:text-brand-sunshine focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Tentang</a>
                         @auth
                             @if (auth()->user()->role === 'admin')
                                 <a href="{{ route('admin.products.index') }}" class="inline-flex min-h-11 items-center justify-center rounded-sm border border-brand-cream/50 px-4 text-sm font-semibold hover:border-brand-sunshine hover:text-brand-sunshine">Dashboard admin</a>
@@ -56,9 +56,9 @@
                 <div id="mobile-navigation" :class="{ 'block': open, 'hidden': ! open }" class="hidden border-t border-brand-cream/20 py-4 xl:hidden">
                     <div class="flex flex-col gap-1">
                         <a @click="open = false" href="#utama" class="flex min-h-11 items-center rounded-sm px-2 hover:bg-brand-leaf/70 active:bg-brand-leaf/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Beranda</a>
-                        <a @click="open = false" href="#tentang" class="flex min-h-11 items-center rounded-sm px-2 hover:bg-brand-leaf/70 active:bg-brand-leaf/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Tentang</a>
                         <a @click="open = false" href="#tiket" class="flex min-h-11 items-center rounded-sm px-2 hover:bg-brand-leaf/70 active:bg-brand-leaf/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Tiket</a>
                         <a @click="open = false" href="#paket-sekolah" class="flex min-h-11 items-center rounded-sm px-2 hover:bg-brand-leaf/70 active:bg-brand-leaf/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Paket sekolah</a>
+                        <a @click="open = false" href="#tentang" class="flex min-h-11 items-center rounded-sm px-2 hover:bg-brand-leaf/70 active:bg-brand-leaf/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine">Tentang</a>
                         <div class="mt-3 grid gap-2 border-t border-brand-cream/20 pt-4 sm:grid-cols-2">
                             @auth
                                 @if (auth()->user()->role === 'admin')
@@ -77,31 +77,28 @@
         </header>
 
         <main id="main-content">
-            <section id="utama" class="overflow-hidden bg-brand-forest text-brand-cream">
-                <div class="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-12 sm:px-8 sm:pb-20 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-12 lg:py-24">
-                    <div class="max-w-2xl">
-                        <p class="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-sunshine">Rumpin, Bogor</p>
-                        <h1 class="max-w-xl text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl">Nikmati waktu yang terasa lebih lapang.</h1>
-                        <p class="mt-6 max-w-lg text-base leading-7 text-brand-cream sm:text-lg">Lihat pilihan tiket kunjungan dan paket sekolah, lalu pesan melalui website.</p>
-                        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                            <a href="#tiket" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-brand-forest bg-brand-sunshine px-5 text-sm font-semibold text-brand-forest hover:bg-brand-sunshine/90 active:bg-brand-sunshine/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine focus:ring-offset-2 focus:ring-offset-brand-forest">Lihat tiket umum</a>
-                            <a href="#paket-sekolah" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-brand-cream/50 px-5 text-sm font-semibold text-brand-cream hover:border-brand-sunshine hover:text-brand-sunshine active:bg-brand-leaf/70 focus:outline-none focus:ring-2 focus:ring-brand-sunshine focus:ring-offset-2 focus:ring-offset-brand-forest">Lihat paket sekolah</a>
+            <section id="utama" class="bg-brand-cream">
+                <div class="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
+                    <div class="grid overflow-hidden border border-brand-border bg-brand-forest text-brand-cream lg:grid-cols-[0.9fr_1.1fr]">
+                        <div class="flex flex-col items-start justify-center px-6 py-10 sm:px-10 sm:py-14 lg:px-12">
+                            <p class="text-sm font-semibold text-brand-sunshine">The Nice Park Rumpin</p>
+                            <h1 class="mt-4 max-w-xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">Rencanakan kunjunganmu.</h1>
+                            <p class="mt-5 max-w-lg text-base leading-7 text-brand-cream sm:text-lg">Pilih tiket umum atau ajukan kunjungan sekolah. Harga dan ketersediaan ditampilkan di katalog.</p>
+                            <div class="mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                                <a href="#tiket" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-brand-sunshine bg-brand-sunshine px-5 text-sm font-semibold text-brand-forest hover:bg-brand-sunshine/90 active:bg-brand-sunshine/80 focus:outline-none focus:ring-2 focus:ring-brand-cream focus:ring-offset-2 focus:ring-offset-brand-forest">Pilih tiket umum</a>
+                                <a href="#paket-sekolah" class="inline-flex min-h-12 items-center justify-center rounded-sm border border-brand-cream/60 px-5 text-sm font-semibold text-brand-cream hover:border-brand-sunshine hover:text-brand-sunshine active:bg-brand-leaf/70 focus:outline-none focus:ring-2 focus:ring-brand-sunshine focus:ring-offset-2 focus:ring-offset-brand-forest">Paket sekolah</a>
+                            </div>
                         </div>
-                    </div>
 
-                    <figure class="relative isolate min-h-72 overflow-hidden border border-brand-cream/25 bg-brand-leaf/70 sm:min-h-80 lg:min-h-[25rem]" aria-labelledby="hero-visual-caption">
-                        <div class="absolute inset-x-0 bottom-0 h-[44%] bg-brand-forest/90" aria-hidden="true"></div>
-                        <div class="absolute -left-14 bottom-[25%] size-64 rounded-full bg-brand-leaf/80" aria-hidden="true"></div>
-                        <div class="absolute left-[24%] bottom-[16%] size-80 rounded-full bg-brand-leaf" aria-hidden="true"></div>
-                        <div class="absolute -right-16 bottom-[20%] size-72 rounded-full bg-brand-leaf/90" aria-hidden="true"></div>
-                        <div class="absolute left-[50%] top-12 h-24 w-px bg-brand-sunshine/70" aria-hidden="true"></div>
-                        <div class="absolute left-[50%] top-36 size-4 -translate-x-1/2 rounded-full bg-brand-adventure" aria-hidden="true"></div>
-                        <div class="absolute inset-x-5 top-5 flex items-start justify-between bg-brand-forest/90 px-3 py-2 text-xs font-medium text-brand-cream">
-                            <span>The Nice Park Rumpin</span>
-                            <span>Ilustrasi lanskap</span>
-                        </div>
-                        <figcaption id="hero-visual-caption" class="absolute bottom-5 left-5 max-w-56 bg-brand-forest/90 p-3 text-sm leading-6 text-brand-cream">Ilustrasi sementara, foto lokasi belum tersedia.</figcaption>
-                    </figure>
+                        <figure role="img" aria-label="Tempat foto utama The Nice Park. Foto sementara belum tersedia." class="relative isolate flex aspect-[4/3] min-h-64 items-end overflow-hidden bg-brand-leaf sm:aspect-[16/9] lg:aspect-auto lg:min-h-[26rem]">
+                            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-brand-forest" aria-hidden="true"></div>
+                            <div class="absolute -left-12 bottom-[18%] h-48 w-64 rounded-t-full bg-brand-leaf/80 sm:h-64 sm:w-80" aria-hidden="true"></div>
+                            <div class="absolute left-[28%] bottom-[12%] h-56 w-72 rounded-t-full bg-brand-forest/80 sm:h-72 sm:w-96" aria-hidden="true"></div>
+                            <div class="absolute -right-12 bottom-[14%] h-52 w-64 rounded-t-full bg-brand-leaf/90 sm:h-64 sm:w-80" aria-hidden="true"></div>
+                            <div class="absolute right-[18%] top-[18%] size-16 rounded-full bg-brand-sunshine sm:size-20" aria-hidden="true"></div>
+                            <figcaption class="relative z-10 m-4 border border-brand-cream/50 bg-brand-forest px-4 py-3 text-sm font-medium text-brand-cream sm:m-6">Tempat foto utama. Gambar sementara, ganti dengan foto lokasi.</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
@@ -117,36 +114,42 @@
             </section>
 
             <section id="tiket" class="border-y border-brand-border bg-brand-surface" aria-labelledby="tickets-heading">
-                <div class="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20 lg:px-12 lg:py-24">
-                    <div>
+                <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+                    <div class="mb-8 max-w-2xl">
                         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-forest">Informasi kunjungan</p>
                         <h2 id="tickets-heading" class="mt-4 max-w-md text-3xl font-semibold leading-tight tracking-tight text-brand-forest sm:text-4xl">Tiket umum</h2>
                         <p class="mt-4 max-w-sm leading-7 text-brand-secondary">Pilih tanggal kunjungan untuk melihat kuota yang tersedia.</p>
                     </div>
 
-                    <div>
+                    <div class="catalog-card-grid">
                         @forelse ($generalTickets as $ticket)
                             @php($pricing = $ticketPricing[$ticket->id])
-                            <article class="grid gap-4 border-b border-brand-border py-6 first:pt-0 sm:grid-cols-[1fr_auto] sm:items-start sm:gap-8">
-                                <div>
+                            <article class="overflow-hidden border border-brand-border bg-brand-cream">
+                                <div role="img" aria-label="Tempat foto untuk {{ $ticket->name }}. Foto belum tersedia." class="relative flex aspect-[16/9] items-end overflow-hidden bg-brand-leaf">
+                                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-brand-forest" aria-hidden="true"></div>
+                                    <div class="absolute -left-5 bottom-[15%] h-24 w-32 rounded-t-full bg-brand-leaf/80" aria-hidden="true"></div>
+                                    <div class="absolute left-[30%] bottom-[10%] h-32 w-40 rounded-t-full bg-brand-forest/80" aria-hidden="true"></div>
+                                    <p class="relative z-10 m-3 border border-brand-cream/50 bg-brand-forest px-3 py-2 text-xs font-medium text-brand-cream">Foto tiket belum tersedia</p>
+                                </div>
+                                <div class="flex min-h-64 flex-col p-5">
                                     <h3 class="text-xl font-semibold text-brand-forest">{{ $ticket->name }}</h3>
                                     @if ($ticket->description)
-                                        <p class="mt-2 leading-7 text-brand-secondary">{{ $ticket->description }}</p>
+                                        <p class="mt-2 line-clamp-3 leading-7 text-brand-secondary">{{ $ticket->description }}</p>
                                     @endif
                                     <p class="mt-3 text-sm text-brand-secondary">Kuota per tanggal: {{ number_format($ticket->quota, 0, ',', '.') }} tiket</p>
-                                </div>
-                                <div class="sm:text-right">
-                                    @if ($pricing['is_discounted'])
-                                        <p class="text-sm text-brand-secondary line-through">Harga normal: Rp {{ number_format($pricing['normal_unit_amount'], 0, ',', '.') }}</p>
-                                        <p class="mt-1 inline-block bg-brand-sunshine px-2 py-1 font-semibold text-brand-forest"><span class="mr-1 border border-brand-forest px-1.5 py-0.5 text-xs">Promo</span> Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal">/ tiket</span></p>
-                                    @else
-                                        <p class="inline-block bg-brand-sunshine px-2 py-1 font-semibold text-brand-forest">Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal">/ tiket</span></p>
-                                    @endif
-                                    <a href="{{ route('catalog.show', $ticket) }}" class="mt-4 inline-flex min-h-11 items-center justify-center rounded-sm border border-brand-forest px-4 text-sm font-semibold text-brand-forest hover:bg-brand-cream active:bg-brand-border focus:outline-none focus:ring-2 focus:ring-brand-forest">Lihat detail dan pesan</a>
+                                    <div class="mt-auto pt-5">
+                                        @if ($pricing['is_discounted'])
+                                            <p class="text-sm text-brand-secondary line-through">Harga normal: Rp {{ number_format($pricing['normal_unit_amount'], 0, ',', '.') }}</p>
+                                            <p class="mt-1 inline-block bg-brand-sunshine px-2 py-1 font-semibold text-brand-forest"><span class="mr-1 border border-brand-forest px-1.5 py-0.5 text-xs">Promo</span> Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal">/ tiket</span></p>
+                                        @else
+                                            <p class="inline-block bg-brand-sunshine px-2 py-1 font-semibold text-brand-forest">Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal">/ tiket</span></p>
+                                        @endif
+                                        <a href="{{ route('catalog.show', $ticket) }}" class="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-brand-forest px-4 text-sm font-semibold text-brand-forest hover:bg-brand-sunshine active:bg-brand-sunshine/80 focus:outline-none focus:ring-2 focus:ring-brand-forest">Lihat detail dan pesan</a>
+                                    </div>
                                 </div>
                             </article>
                         @empty
-                            <div class="border-y border-brand-border py-8">
+                            <div class="border-y border-brand-border py-8 sm:col-span-2 xl:col-span-3">
                                 <h3 class="text-xl font-semibold text-brand-forest">Belum ada tiket umum aktif.</h3>
                                 <p class="mt-3 max-w-lg leading-7 text-brand-secondary">Tiket yang tersedia akan muncul di halaman ini setelah pengelola mengaktifkannya. Silakan periksa kembali katalog nanti.</p>
                             </div>
@@ -156,40 +159,44 @@
             </section>
 
             <section id="paket-sekolah" class="bg-brand-forest text-brand-cream" aria-labelledby="school-heading">
-                <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20 lg:px-12 lg:py-24">
-                    <div class="max-w-xl">
+                <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+                    <div class="mb-8 max-w-2xl">
                         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-sunshine">Untuk rombongan</p>
                         <h2 id="school-heading" class="mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">Paket sekolah</h2>
                         <p class="mt-5 leading-7">Ajukan kunjungan dengan mengisi nama sekolah, penanggung jawab, tanggal, dan jumlah peserta. Admin akan meninjau pengajuan sebelum pembayaran.</p>
                     </div>
-                    <div>
+                    <div class="catalog-card-grid">
                         @forelse ($schoolPackages as $ticket)
                             @php($pricing = $ticketPricing[$ticket->id])
-                            <article class="border-t border-brand-cream/30 py-6 first:pt-0">
-                                <div class="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start sm:gap-8">
-                                    <div>
-                                        <h3 class="text-xl font-semibold">{{ $ticket->name }}</h3>
-                                        @if ($ticket->description)
-                                            <p class="mt-2 leading-7 text-brand-cream">{{ $ticket->description }}</p>
-                                        @endif
-                                        <p class="mt-3 text-sm text-brand-cream">Kuota per tanggal: {{ number_format($ticket->quota, 0, ',', '.') }} peserta</p>
-                                        <p class="mt-1 text-sm text-brand-cream">Harga tetap untuk satu pengajuan, tidak dikalikan jumlah peserta.</p>
-                                    </div>
-                                    <div class="sm:text-right">
+                            <article class="overflow-hidden border border-brand-border bg-brand-cream text-brand-charcoal">
+                                <div role="img" aria-label="Tempat foto untuk {{ $ticket->name }}. Foto belum tersedia." class="relative flex aspect-[16/9] items-end overflow-hidden bg-brand-leaf">
+                                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-brand-forest" aria-hidden="true"></div>
+                                    <div class="absolute -left-5 bottom-[15%] h-24 w-32 rounded-t-full bg-brand-leaf/80" aria-hidden="true"></div>
+                                    <div class="absolute left-[30%] bottom-[10%] h-32 w-40 rounded-t-full bg-brand-forest/80" aria-hidden="true"></div>
+                                    <p class="relative z-10 m-3 border border-brand-cream/50 bg-brand-forest px-3 py-2 text-xs font-medium text-brand-cream">Foto paket belum tersedia</p>
+                                </div>
+                                <div class="flex min-h-72 flex-col p-5">
+                                    <h3 class="text-xl font-semibold text-brand-forest">{{ $ticket->name }}</h3>
+                                    @if ($ticket->description)
+                                        <p class="mt-2 line-clamp-3 leading-7 text-brand-secondary">{{ $ticket->description }}</p>
+                                    @endif
+                                    <p class="mt-3 text-sm text-brand-secondary">Kuota per tanggal: {{ number_format($ticket->quota, 0, ',', '.') }} peserta</p>
+                                    <p class="mt-1 text-sm text-brand-secondary">Harga tetap untuk satu pengajuan, tidak dikalikan jumlah peserta.</p>
+                                    <div class="mt-auto pt-5">
                                         @if ($pricing['is_discounted'])
-                                            <p class="text-sm text-brand-cream line-through">Harga normal: Rp {{ number_format($pricing['normal_unit_amount'], 0, ',', '.') }}</p>
-                                            <p class="mt-1 font-semibold text-brand-sunshine"><span class="mr-1 border border-brand-sunshine px-1.5 py-0.5 text-xs">Promo</span> Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal text-brand-cream">/ pengajuan</span></p>
-                                            <p class="mt-2 max-w-56 text-sm leading-6 text-brand-cream sm:ml-auto">Promo dinilai kembali saat checkout setelah persetujuan admin.</p>
+                                            <p class="text-sm text-brand-secondary line-through">Harga normal: Rp {{ number_format($pricing['normal_unit_amount'], 0, ',', '.') }}</p>
+                                            <p class="mt-1 inline-block bg-brand-sunshine px-2 py-1 font-semibold text-brand-forest"><span class="mr-1 border border-brand-forest px-1.5 py-0.5 text-xs">Promo</span> Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal">/ pengajuan</span></p>
+                                            <p class="mt-2 text-sm leading-6 text-brand-secondary">Promo dinilai kembali saat checkout setelah persetujuan admin.</p>
                                         @else
-                                            <p class="font-semibold text-brand-sunshine">Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal text-brand-cream">/ pengajuan</span></p>
+                                            <p class="inline-block bg-brand-sunshine px-2 py-1 font-semibold text-brand-forest">Rp {{ number_format($pricing['unit_amount'], 0, ',', '.') }} <span class="text-sm font-normal">/ pengajuan</span></p>
                                         @endif
-                                        <a href="{{ route('catalog.show', $ticket) }}" class="mt-4 inline-flex min-h-11 items-center justify-center rounded-sm border border-brand-forest bg-brand-sunshine px-4 text-sm font-semibold text-brand-forest hover:bg-brand-sunshine/90 active:bg-brand-sunshine/80 focus:outline-none focus:ring-2 focus:ring-brand-sunshine focus:ring-offset-2 focus:ring-offset-brand-forest">Lihat detail dan ajukan</a>
+                                        <a href="{{ route('catalog.show', $ticket) }}" class="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-brand-forest bg-brand-sunshine px-4 text-sm font-semibold text-brand-forest hover:bg-brand-sunshine/90 active:bg-brand-sunshine/80 focus:outline-none focus:ring-2 focus:ring-brand-forest">Lihat detail dan ajukan</a>
                                     </div>
                                 </div>
                             </article>
                         @empty
-                            <div class="border-y border-brand-cream/30 py-8">
-                                <h3 class="text-xl font-semibold">Belum ada paket sekolah aktif.</h3>
+                            <div class="border-y border-brand-cream/30 py-8 sm:col-span-2 xl:col-span-3">
+                                <h3 class="text-xl font-semibold text-brand-cream">Belum ada paket sekolah aktif.</h3>
                                 <p class="mt-3 max-w-lg leading-7 text-brand-cream">Paket sekolah akan muncul di halaman ini setelah pengelola menambahkannya dan mengaktifkan statusnya.</p>
                             </div>
                         @endforelse

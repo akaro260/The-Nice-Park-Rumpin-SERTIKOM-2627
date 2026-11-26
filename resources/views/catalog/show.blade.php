@@ -27,6 +27,12 @@
             <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start lg:gap-20">
                 <section aria-labelledby="product-heading">
                     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-forest">{{ $ticket->type === 'school' ? 'Paket sekolah' : 'Tiket umum' }}</p>
+                    <figure role="img" aria-label="Tempat foto untuk {{ $ticket->name }}. Foto belum tersedia." class="relative isolate mt-5 flex aspect-[16/9] items-end overflow-hidden bg-brand-leaf">
+                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-brand-forest" aria-hidden="true"></div>
+                        <div class="absolute -left-8 bottom-[15%] h-32 w-44 rounded-t-full bg-brand-leaf/80 sm:h-40 sm:w-56" aria-hidden="true"></div>
+                        <div class="absolute left-[30%] bottom-[10%] h-40 w-56 rounded-t-full bg-brand-forest/80 sm:h-48 sm:w-64" aria-hidden="true"></div>
+                        <figcaption class="relative z-10 m-3 border border-brand-cream/50 bg-brand-forest px-3 py-2 text-xs font-medium text-brand-cream sm:m-4">Tempat foto produk. Foto belum tersedia.</figcaption>
+                    </figure>
                     <h1 id="product-heading" class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-brand-forest sm:text-4xl lg:text-5xl">{{ $ticket->name }}</h1>
                     @if ($ticket->description)
                         <p class="mt-6 max-w-2xl whitespace-pre-line text-base leading-7 text-brand-charcoal">{{ $ticket->description }}</p>

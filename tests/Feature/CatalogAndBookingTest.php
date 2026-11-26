@@ -227,10 +227,18 @@ it('shows only active products and refuses inactive product details', function (
     $this->get(route('catalog.show', $activeTicket))
         ->assertOk()
         ->assertSeeText('Tiket Kunjungan')
-        ->assertSeeText('Rp 75.000');
+        ->assertSeeText('Rp 75.000')
+        ->assertSeeText('Tempat foto produk. Foto belum tersedia.');
 
     $this->get(route('catalog.show', $inactiveTicket))
         ->assertNotFound();
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSeeText('Rencanakan kunjunganmu.')
+        ->assertSeeText('Foto tiket belum tersedia')
+        ->assertSeeText('Tiket Kunjungan')
+        ->assertDontSeeText('Tiket Nonaktif');
 
     $this->actingAs(createCustomerForCatalogTest())
         ->post(route('bookings.store', $inactiveTicket), [
